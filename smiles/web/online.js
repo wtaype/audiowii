@@ -334,9 +334,3 @@ export const init = () => {
   }
 };
 
-export const cleanup = () => {
-  console.log('🧹 Online limpiado');
-  $(document).off('paste keydown');
-  $('#urlDropZone, #btnLoadVideo, .example_card, #aspectRatioSelect, #btnPlayPause').off();
-  $('#videoPlayer').empty();
-};

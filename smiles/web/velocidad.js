@@ -447,11 +447,3 @@ export const init = () => {
   $('#veloc_btn_process').addEventListener('click', processAudio);
 };
 
-export const cleanup = () => {
-  console.log('🧹 Velocidad limpiado');
-  document.querySelectorAll('.wiTip').forEach(t => t.remove());
-  const audio = document.querySelector('#veloc_audio');
-  if (audio?.src) URL.revokeObjectURL(audio.src);
-  const state = { rafId: null };
-  if (state.rafId) cancelAnimationFrame(state.rafId);
-};

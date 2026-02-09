@@ -253,7 +253,6 @@ export const render = () => `
 `;
 
 export const init = () => {
-  console.log(`✅ ${app} ${version} - Inicio cargado`);
 
   let roleActual = 0;
   const $roles = $('.inicio_role');

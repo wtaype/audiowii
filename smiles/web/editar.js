@@ -1130,14 +1130,3 @@ export const init = () => {
   console.log('✅ Editor cargado');
 };
 
-export const cleanup = () => {
-  stopAll();
-  disconnectEQ();
-  files.forEach(m => URL.revokeObjectURL(m.url));
-  files = []; audioBuffer = null;
-  if (actx) { actx.close(); actx = null; srcNode = null; analyser = null; }
-  eqFilters = [];
-  $('#edit_zone, .edit_btn_add, .edit_btn_clear, .edit_btn_search, #edit_btn_close_search, #edit_search_input').off();
-  $(document).off('.edit');
-  console.log('🧹 Editor limpiado');
-};

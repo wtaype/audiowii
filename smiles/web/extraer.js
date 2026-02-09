@@ -468,8 +468,3 @@ export const init = () => {
   $('#extr_btn_download').on('click', downloadAudio);
 };
 
-export const cleanup = () => {
-  console.log('🧹 Extraer limpiado');
-  clearVideo();
-  $('#extr_btn_select, #extr_file_input, #extr_btn_clear, #extr_dropzone, #extr_format, #extr_quality, #extr_volume, #extr_btn_extract, #extr_btn_download').off();
-};

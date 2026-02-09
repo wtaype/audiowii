@@ -429,6 +429,3 @@ export const init = () => {
   setInterval(animateWaveform, 100);
 };
 
-export const cleanup = () => {
-  console.log('🧹 Acerca limpiado');
-};

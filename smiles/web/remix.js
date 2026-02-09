@@ -622,16 +622,3 @@ export const init = () => {
   });
 };
 
-export const cleanup = () => {
-  console.log('🧹 Remix limpiado');
-  if (vizId) cancelAnimationFrame(vizId);
-  stopAll();
-  ['a', 'b'].forEach(deck => {
-    const d = decks[deck];
-    if (d.source) try { d.source.disconnect(); } catch(e) {}
-    if (d.audio) { d.audio.pause(); d.audio.src = ''; }
-  });
-  if (actx) { actx.close(); actx = null; }
-  $(document).off('.remix');
-  $('#remi_btn_a, #remi_btn_b, #remi_file_a, #remi_file_b, #remi_vol_a, #remi_vol_b, #remi_speed_a, #remi_speed_b, #remi_pitch_a, #remi_pitch_b, #remi_crossfader, #remi_master, .remix_fx_btn, #remi_play_all, #remi_pause_all, #remi_stop_all').off();
-};

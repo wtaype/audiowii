@@ -502,9 +502,3 @@ export const init = () => {
   $(document).on('click', '#conv_btnConvert', convertAudio);
 };
 
-export const cleanup = () => {
-  console.log('🧹 Convertir limpiado');
-  $('#conv_uploadZone, #conv_audioInput, #conv_btnSelect, #conv_btnDelete, #conv_btnConvert, #conv_formatSelect, #conv_qualitySelect, #conv_sampleRateSelect').off();
-  const audio = $('#conv_convertirAudio')[0];
-  if (audio?.src) URL.revokeObjectURL(audio.src);
-};

@@ -541,9 +541,3 @@ export const init = () => {
   console.log('✅ Play cargado');
 };
 
-export const cleanup = () => {
-  $(document).off('.play');
-  state.files.forEach(m => URL.revokeObjectURL(m.url));
-  if (state.rafId) cancelAnimationFrame(state.rafId);
-  if (state.actx) state.actx.close();
-};
