@@ -5,7 +5,7 @@ import { wiVista, Saludar } from '../widev.js';
 
 const navSections = [
   { icon: 'fa-play-circle', title: 'Play', desc: 'Reproduce tus audios favoritos con controles avanzados y ecualizador profesional.', color: '--success', link: '/play', emoji: '🎵', tooltip: 'Reproductor de audio con visualización' },
-  { icon: 'fa-list-music', title: 'PlayList', desc: 'Organiza y gestiona tus colecciones de música, podcasts y audiolibros fácilmente.', color: '--Mora', link: '/playlist', emoji: '📋', tooltip: 'Crea listas de reproducción personalizadas' },
+  { icon: 'fa-bolt', title: 'PlayList', desc: 'Organiza y gestiona tus colecciones de música, podcasts y audiolibros fácilmente.', color: '--Mora', link: '/playlist', emoji: '📋', tooltip: 'Crea listas de reproducción personalizadas' },
   { icon: 'fa-sliders-h', title: 'Editar', desc: 'Ajusta volumen, ecualización, efectos y normaliza tus archivos de audio.', color: '--info', link: '/editar', emoji: '🎚️', tooltip: 'Editor de audio con efectos profesionales' },
   { icon: 'fa-exchange-alt', title: 'Convertir', desc: 'Transforma entre MP3, WAV, OGG, M4A, FLAC y más de 15 formatos de audio.', color: '--warning', link: '/convertir', emoji: '🔄', tooltip: 'Conversor universal de formatos' },
   { icon: 'fa-magic', title: 'Remix', desc: 'Mezcla pistas, ajusta BPM, aplica efectos y crea remixes profesionales.', color: '--Dulce', link: '/remix', emoji: '✨', tooltip: 'Herramienta de mezcla y remix' },
