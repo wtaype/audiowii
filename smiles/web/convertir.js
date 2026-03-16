@@ -1,7 +1,6 @@
 import './convertir.css';
-import $ from 'jquery';
 import { app } from '../wii.js';
-import { Notificacion, Mensaje } from '../widev.js';
+import { $, Notificacion, Mensaje } from '../widev.js';
 
 export const render = () => `
   <div class="wi_convertir_container mwb">

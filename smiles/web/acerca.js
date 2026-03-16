@@ -1,6 +1,5 @@
 import './acerca.css';
-import $ from 'jquery';
-import { wiVista } from '../widev.js';
+import { $, wiVista } from '../widev.js';
 import { app, version, lanzamiento, autor, link } from '../wii.js';
 
 // Curiosidades sobre audio y música

@@ -1,5 +1,5 @@
 import './velocidad.css';
-import { Notificacion, wiTip } from '../widev.js';
+import { $, Notificacion, wiTip } from '../widev.js';
 
 export const render = () => `
   <div class="wi_velocidad mwb">

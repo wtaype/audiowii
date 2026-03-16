@@ -1,7 +1,6 @@
 // filepath: c:\midev\miweb\audiowii\smiles\web\editar.js
 import './editar.css';
-import $ from 'jquery';
-import { Notificacion } from '../widev.js';
+import { $, Notificacion } from '../widev.js';
 
 /* ==================== RENDER ==================== */
 export const render = () => `

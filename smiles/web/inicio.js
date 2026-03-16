@@ -1,7 +1,6 @@
 import './inicio.css';
-import $ from 'jquery';
 import { app, version, autor, lanzamiento } from '../wii.js';
-import { wiVista, Saludar } from '../widev.js';
+import { $, wiVista, Saludar } from '../widev.js';
 
 const navSections = [
   { icon: 'fa-play-circle', title: 'Play', desc: 'Reproduce tus audios favoritos con controles avanzados y ecualizador profesional.', color: '--success', link: '/play', emoji: '🎵', tooltip: 'Reproductor de audio con visualización' },

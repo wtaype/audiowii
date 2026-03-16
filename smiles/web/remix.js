@@ -1,7 +1,6 @@
 import './remix.css';
-import $ from 'jquery';
 import { app } from '../wii.js';
-import { Notificacion } from '../widev.js';
+import { $, Notificacion } from '../widev.js';
 
 export const render = () => `
   <div class="wi_remix mwb">
