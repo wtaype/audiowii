@@ -74,10 +74,20 @@ export const wiAuth = Object.assign((load, render) => bus.add(async () => { awai
 
 // CARGA INTELIGENTE v15_________________________________
 export const wiSmart = (() => {
-  const ok = new Set(), c = getls('wiSmart'), im = {};
-  const obs = new MutationObserver(() => { for (const s in im) { const e = document.querySelector(s); if (e) e.outerHTML = im[s]; } });
+  const ok = new Set(), c = getls('wiSmart');
+  const loadImgs = (imgs) => {
+    const pending = [...imgs];
+    const tryReplace = () => {
+      for (let i = pending.length - 1; i >= 0; i--) {
+        const [sel, html] = pending[i], e = document.querySelector(sel);
+        if (e) { e.outerHTML = html; pending.splice(i, 1); }
+      }
+      if (pending.length) requestAnimationFrame(tryReplace);
+    };
+    tryReplace();
+  };
   const run = o => { Object.entries(o).forEach(([t, v]) => {
-    if (t === 'img') { Object.assign(im, v); obs.observe(document.body, { childList: true, subtree: true }); return; }
+    if (t === 'img') { loadImgs(v); return; }
     [].concat(v).forEach(it => { const k = `${t}:${it}`; if (ok.has(k)) return; ok.add(k);
       t === 'css' ? !$(`link[href="${it}"]`).length && $('<link>', { rel: 'stylesheet', href: it }).appendTo('head')
         : typeof it === 'function' && it().catch?.(e => console.error('wiSmart:', e));
@@ -152,6 +162,7 @@ export function wiTip(elmOrTxt, txt, tipo = 'top', tiempo = 1800) {
     }).on('mouseleave.wiTip', '[data-witip]', () => { $('.wiTip').removeClass('show'); clearTimeout(t); t = setTimeout(() => $('.wiTip').remove(), 200) });
     wiTip.CSS = true;
   }
+  if (!elmOrTxt) return;
   if (typeof elmOrTxt === 'string' && !txt) return `data-witip="${elmOrTxt}" data-wtipo="${tipo}" data-wtiempo="${tiempo}"`;
   return wiTip.ver(elmOrTxt, txt, tipo, tiempo), $(elmOrTxt);
 }

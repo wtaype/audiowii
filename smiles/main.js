@@ -9,9 +9,9 @@ wiSmart({
     'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap',
   ],
   js: [() => import('https://kit.fontawesome.com/a8c6571af4.js'), () => import('./footer.js')],
-  img: {
-    '.profile_img': `<img src="${import.meta.env.BASE_URL}hero.webp" alt="Imagen inicial" class="profile_img">`,
-  }
+  img: [
+    ['.img_inicio', `<img src="${import.meta.env.BASE_URL}hero.webp" alt="AudioWii" class="img_inicio" loading="eager">`],
+  ]
 });
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {}); // Service Worker

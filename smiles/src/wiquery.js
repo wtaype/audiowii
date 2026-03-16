@@ -95,6 +95,11 @@ class wi$ {
 
   // EVENTS
   on(ev, selOrFn, fn) {
+    if (typeof ev === 'object' && ev !== null && !(ev instanceof String)) {
+      const sel = typeof selOrFn === 'string' ? selOrFn : null;
+      for (const [k, v] of Object.entries(ev)) sel ? this.on(k, sel, v) : this.on(k, v);
+      return this;
+    }
     const deleg = typeof selOrFn === 'string';
     const handler = deleg ? fn : selOrFn;
     _each(this.els, el => {
@@ -132,9 +137,15 @@ class wi$ {
       if (!el._wi) return;
       ev.split(' ').forEach(e => {
         const [type, ns] = e.split('.');
-        const key = ns ? `${type}.${ns}` : type;
-        const keys = ns ? [key] : Object.keys(el._wi).filter(k => k === type || k.startsWith(type + '.'));
-        keys.forEach(k => { const tp = k.split('.')[0]; (el._wi[k] || []).forEach(fn => el.removeEventListener(tp, fn, tp === 'mouseenter' || tp === 'mouseleave')); delete el._wi[k]; });
+        if (!type && ns) {
+          Object.keys(el._wi).filter(k => k.endsWith(`.${ns}`)).forEach(k => {
+            const tp = k.split('.')[0]; (el._wi[k] || []).forEach(fn => el.removeEventListener(tp, fn, tp === 'mouseenter' || tp === 'mouseleave')); delete el._wi[k];
+          });
+        } else {
+          const key = ns ? `${type}.${ns}` : type;
+          const keys = ns ? [key] : Object.keys(el._wi).filter(k => k === type || k.startsWith(type + '.'));
+          keys.forEach(k => { const tp = k.split('.')[0]; (el._wi[k] || []).forEach(fn => el.removeEventListener(tp, fn, tp === 'mouseenter' || tp === 'mouseleave')); delete el._wi[k]; });
+        }
       });
     });
     return this;
